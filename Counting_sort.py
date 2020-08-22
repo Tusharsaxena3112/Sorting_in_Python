@@ -2,9 +2,8 @@
 
 
 def counting_sort(n, m, arr):
-    range_numbers = m - n + 1
-    counts = [0 for i in range(range_numbers + 1)]
-    print(counts)
+    counts = [0 for i in range(m + 1)]
+    # print(counts)
     for number in arr:
         counts[number] += 1
     for count in range(len(counts)):
@@ -17,4 +16,4 @@ def counting_sort(n, m, arr):
 # is k .  So time Complexity for Counting Sort is O(n+k)
 
 
-counting_sort(1, 5, [1, 2, 1, 3, 2, 1, 5, 3, 4])
+counting_sort(3, 10, [3, 10, 2, 3, 4, 7, 3, 6, 9])
