@@ -23,6 +23,14 @@ class LinkedList:
             self.last.next = node
             self.last = node
 
+    def add_first(self, element):
+        node = Node(element)
+        if self.is_empty():
+            self.first = self.last = node
+        else:
+            node.next = self.first
+            self.first = node
+
     def print_list(self):
         temp = self.first
         while temp is not None:
@@ -36,4 +44,5 @@ if __name__ == '__main__':
     l.add_last(5)
     l.add_last(10)
     l.add_last(15)
+    l.add_first(3)
     l.print_list()
