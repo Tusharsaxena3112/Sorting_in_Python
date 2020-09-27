@@ -32,27 +32,49 @@ class LinkedList:
             self.first = node
 
     def delete_first(self):
+        pop = None
         if self.first == self.last:
+            pop = self.first
             self.first = self.last = None
         elif self.first is None and self.last is None:
             print('No Entry is list. Kindly add first before deleting')
         else:
+            pop = self.first
             temp = self.first.next
             self.first.next = None
             self.first = temp
+        return pop.data
 
     def delete_last(self):
+        pop = None
         if self.first == self.last:
+            pop = self.last
             self.first = self.last = None
         elif self.first is None and self.last is None:
             print('No Entry is list. Kindly add first before deleting')
         else:
+            pop = self.last
             temp = self.first
             while temp.next.next is not None:
                 temp = temp.next
             temp.next = None
             self.last = temp
+        return pop.data
 
+    def sort_list(self):
+        current = self.first
+        index = None
+        while current is not None:
+            index = current
+            m = current.data
+            i = index
+            while index is not None:
+                if index.data < m:
+                    m = index.data
+                    i = index
+                index = index.next
+            current.data, i.data = i.data, current.data
+            current = current.next
 
     def print_list(self):
         temp = self.first
