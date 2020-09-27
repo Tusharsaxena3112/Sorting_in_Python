@@ -41,6 +41,19 @@ class LinkedList:
             self.first.next = None
             self.first = temp
 
+    def delete_last(self):
+        if self.first == self.last:
+            self.first = self.last = None
+        elif self.first is None and self.last is None:
+            print('No Entry is list. Kindly add first before deleting')
+        else:
+            temp = self.first
+            while temp.next.next is not None:
+                temp = temp.next
+            temp.next = None
+            self.last = temp
+
+
     def print_list(self):
         temp = self.first
         while temp is not None:
@@ -56,5 +69,5 @@ if __name__ == '__main__':
     l.add_last(15)
     l.add_first(3)
     l.delete_first()
-    l.delete_first()
+    l.delete_last()
     l.print_list()
